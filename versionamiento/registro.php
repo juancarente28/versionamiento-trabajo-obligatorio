@@ -88,3 +88,72 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         mysqli_close($link);
     }
+    ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">   
+      
+    </style>
+</head>
+<body>
+<header>
+        <div class="content">
+            
+        <div class="menu container">
+            <a href="menu.html" class="logo"><img src="img/nombre.png"height="50px" alt=""></a>
+            <input type="checkbox" id="menu" />                   
+        </div>            
+              
+</header>
+<div class="login">
+		<div class="login-screen">
+          
+			<div class="login-form">
+
+            <p style="font-size: 30 px; color: rgb(241, 243, 246); font-weight: bolder;"></p>
+    <br>
+
+    <?php
+$texto = "Registro";
+
+echo "<p style='font-weight: bolder; font-size: 50px; color:  rgb(241, 243, 246);'>$texto</p>";
+?>
+<br>
+    <p style="font-size: 23px; color: rgb(241, 243, 246); font-weight: bolder;">Por favor llene el formulario.</p>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+        <br>
+          <label></label>
+            <input type="text" placeholder="Introduce tu nombre" name="username" class="form-control" value="<?php echo $username; ?>">
+            <br>
+            <span class="help-block"><?php echo "<p style='color: #050451 ; font-size: 22px;'> $username_err</p>";?></span>
+        </div>
+
+        <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+            <label></label>
+            <input type="password" placeholder="Introduce tu contraseña"name="password" class="form-control" value="<?php echo $password; ?>">
+            <br>
+            <span class="help-block"><?php echo "<p style='color: #050451 ; font-size: 22px;'> $password_err</p>";?></span>
+        </div>
+
+        <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
+            <label></label>
+            <input type="password" placeholder="Confirma tu contraseña" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
+            <br>
+            <span class="help-block"><?php echo  "<p style='color: #050451 ; font-size: 22px;'> $confirm_password_err</p>";?></span>
+        </div>
+        
+        <div class="form-group">
+            <input type="submit" id="inputPequeno" style= "color: #ffff; background-color: #031e01" class="btn btn-primary" value="Enviar">     
+            <input type="reset"  id="inputPequeno" style= "color: #ffff; background-color: #031e01" class="btn btn-default" value="Reiniciar">
+        </div>
+        <p style="color: #ffff;">Ya tienes un usuario?<a href="ingresar.php" style="color: #050451;"> Ingresa aquí.</a></p></p> 
+        <br>
+    </form>
+</div>
+</body>
+</html>
